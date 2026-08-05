@@ -1,28 +1,72 @@
+# ==========================
 # Virtual Environment
+# ==========================
 .venv/
 venv/
 env/
 ENV/
 
+# ==========================
 # Python bytecode & cache
+# ==========================
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Environment variables & secrets
+# ==========================
+# Environment variables
+# ==========================
 .env
 .env.local
 
-# OS generated files
+# ==========================
+# OS files
+# ==========================
 .DS_Store
 Thumbs.db
 
-# IDE & Editor files
+# ==========================
+# IDE & Editor
+# ==========================
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Logs & Database files
+# Antigravity IDE (if created)
+.antigravity/
+
+# ==========================
+# Logs
+# ==========================
+logs/
 *.log
+
+# ==========================
+# Database
+# ==========================
 *.sqlite3
+
+# ==========================
+# AI Models
+# ==========================
+models/
+*.gguf
+
+# ==========================
+# Audio Files
+# ==========================
+recordings/
+*.wav
+*.mp3
+
+# ==========================
+# Python Testing
+# ==========================
+.pytest_cache/
+.coverage
+
+# ==========================
+# Jupyter
+# ==========================
+.ipynb_checkpoints/
