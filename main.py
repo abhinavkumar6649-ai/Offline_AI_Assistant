@@ -1,8 +1,9 @@
+from modules.actions import get_time, get_date, open_app,open_website
 from modules.memory import create_database, save_memory, get_memory
 from modules.speaker import speak
 from modules.voice import record_audio
 from modules.stt import speech_to_text
-from modules.brain import ask_ai
+from modules.brain import ask_ai, clear_conversation
 from modules.wakeword import wait_for_wake_word
 
 
@@ -40,7 +41,46 @@ while True:
         print("\n🧑 You:", user_text)
 
         command = user_text.lower()
+        # =========================
+        # MAC ACTIONS
+        # =========================
 
+        if "time" in command:
+            response = f"The current time is {get_time()}."
+            print("\n🤖 Jarvis:")
+            print(response)
+            speak(response)
+            continue
+
+        if "date" in command or "today" in command:
+            response = f"Today is {get_date()}."
+            print("\n🤖 Jarvis:")
+            print(response)
+            speak(response)
+            continue
+
+        if command.startswith("open "):
+            app_name = user_text[5:].strip()
+
+            known_apps = {
+                "calculator": "Calculator",
+                "safari": "Safari",
+                "terminal": "Terminal",
+                "finder": "Finder",
+                "notes": "Notes",
+                "calendar": "Calendar",
+                "music": "Music",
+            }
+
+            if app_name.lower() in known_apps:
+                response = open_app(known_apps[app_name.lower()])
+            else:
+                response = f"I don't know how to open {app_name} yet."
+
+            print("\n🤖 Jarvis:")
+            print(response)
+            speak(response)
+            continue
         # Exit completely
         if command in ["exit", "quit", "bye", "shutdown jarvis"]:
             print("👋 Goodbye!")

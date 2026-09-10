@@ -70,3 +70,9 @@ recordings/
 # Jupyter
 # ==========================
 .ipynb_checkpoints/
+# Runtime files
+data/memory.db
+recordings/input.wav
+
+# Local backups
+*_backup.py
